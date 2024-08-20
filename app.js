@@ -1,23 +1,4 @@
 require('dotenv').config();
-import contractAbi from "./SmartMeterContractABI.json"
-const Web3 = require('web3');
-const web3 = new Web3(process.env.INFURA_URL);
-
-const contractABI = contractAbi;
-const contractAddress = '0x6030F493594e735C0A68012FdD19bC37C65cCeB0';
-
-const contract = new web3.eth.Contract(contractABI, contractAddress);
-
-contract.events.EnergyUnitsPurchased({
-  fromBlock: 'latest'
-}, (error, event) => {
-  if (error) {
-      console.error('Error:', error);
-  } else {
-      console.log('Event:', event);
-      // Handle the event data here
-  }
-});
 
 
 
@@ -61,4 +42,10 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+
+app.listen(3000, () => {
+  console.log("Server running successfully")
+})
+
+module.exports = app
+
