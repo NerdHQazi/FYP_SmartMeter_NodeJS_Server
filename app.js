@@ -32,8 +32,6 @@ app.use('/smartmeter', smartMeterRouter);
 
 
 mongoose.connect(process.env.MONGODB_URL, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
 });
 
 mongoose.connection.on('connected', () => {
@@ -61,9 +59,6 @@ app.use(function(err, req, res, next) {
 });
 
 
-app.listen(process.env.PORT, () => {
-  console.log("Server running successfully")
-})
 
 module.exports = app
 
