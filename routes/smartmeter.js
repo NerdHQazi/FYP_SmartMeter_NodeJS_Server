@@ -17,6 +17,7 @@ router.post('/connect', async function(req, res, next) {
             });
             await smartMeterData.save()
         } else {
+            const previousEnergyUsage = smartMeterData.energyUsage;
             smartMeterData.energyUsage = energy;
             const energyConsumed = energy - previousEnergyUsage;
             smartMeterData.energyBalance -= energyConsumed;
