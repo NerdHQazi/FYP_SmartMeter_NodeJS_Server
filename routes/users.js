@@ -38,7 +38,7 @@ router.get('/me', async  (req, res) => {
     if (!smartMeterData) {
       // If no entry exists, create a new one
       smartMeterData = new SmartMeter({
-        smartMeterAddress: userAddress,
+        smartMeterAddress: smartMeterId,
         energyUsage: 0,
         energyBalance: 0,
       });
