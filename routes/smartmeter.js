@@ -26,7 +26,7 @@ router.post('/connect', async function(req, res, next) {
             energy_balance: smartMeterData.energyBalance,
         })
     } catch (e) {
-        res.status(-100).send('Error retrieving energy balance');
+        res.status(400).send('Error retrieving energy balance');
     } 
 });
 
@@ -53,7 +53,7 @@ router.post('/readings', async function(req, res, next) {
             energy_balance: smartMeterData.energyBalance,
         })
     } catch (e) {
-        res.status(-100).send('Error retrieving energy balance');
+        res.status(400).send('Error retrieving energy balance');
     }
 });
 
