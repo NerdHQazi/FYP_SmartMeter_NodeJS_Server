@@ -17,10 +17,10 @@ router.post('/connect', async function(req, res, next) {
             });
             await smartMeterData.save()
         } else {
-            const previousEnergyUsage = smartMeterData.energyUsage;
+            let previousEnergyUsage = smartMeterData.energyUsage;
             smartMeterData.energyUsage = energy;
-            const energyConsumed = energy - previousEnergyUsage;
-            const newEnergyBalance = smartMeterData.energyBalance - energyConsumed;
+            let energyConsumed = energy - previousEnergyUsage;
+            let newEnergyBalance = smartMeterData.energyBalance - energyConsumed;
             if(newEnergyBalance < 0) newEnergyBalance = 0;
             smartMeterData.energyBalance = newEnergyBalance;
             await smartMeterData.save();
@@ -49,8 +49,8 @@ router.post('/readings', async function(req, res, next) {
         } else {
             let previousEnergyUsage = smartMeterData.energyUsage;
             smartMeterData.energyUsage = energy;
-            const energyConsumed = energy - previousEnergyUsage;
-            const newEnergyBalance = smartMeterData.energyBalance - energyConsumed;
+            let energyConsumed = energy - previousEnergyUsage;
+            let newEnergyBalance = smartMeterData.energyBalance - energyConsumed;
             if(newEnergyBalance < 0) newEnergyBalance = 0;
             smartMeterData.energyBalance = newEnergyBalance;
             await smartMeterData.save();
